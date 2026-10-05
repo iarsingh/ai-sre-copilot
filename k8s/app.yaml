@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-sre-copilot
+  labels:
+    app: ai-sre-copilot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ai-sre-copilot
+  template:
+    metadata:
+      labels:
+        app: ai-sre-copilot
+    spec:
+      containers:
+        - name: api
+          image: ai-sre-copilot:local
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /v1/readyz
+              port: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ai-sre-copilot
+spec:
+  selector:
+    app: ai-sre-copilot
+  ports:
+    - port: 80
+      targetPort: 8080
