@@ -68,13 +68,13 @@ This is a concrete regression example from the repository. Its assertions establ
 ## 6. What HTTP interface does the code expose?
 
 - `POST /investigate` → `post_investigate` in [`src/sre/main.py`](src/sre/main.py#L9).
-- `GET /readyz` → `readyz` in [`src/sre/ops.py`](src/sre/ops.py#L44).
-- `POST /workspaces` → `create_workspace` in [`src/sre/ops.py`](src/sre/ops.py#L49).
-- `GET /workspaces` → `list_workspaces` in [`src/sre/ops.py`](src/sre/ops.py#L66).
-- `POST /workspaces/{workspace_id}/jobs` → `create_job` in [`src/sre/ops.py`](src/sre/ops.py#L73).
-- `GET /jobs/{job_id}` → `get_job` in [`src/sre/ops.py`](src/sre/ops.py#L96).
-- `POST /jobs/{job_id}/approve` → `approve_job` in [`src/sre/ops.py`](src/sre/ops.py#L105).
-- `GET /audit` → `audit` in [`src/sre/ops.py`](src/sre/ops.py#L122).
+- `GET /readyz` → `readyz` in [`src/sre/ops.py`](src/sre/ops.py#L74).
+- `POST /workspaces` → `create_workspace` in [`src/sre/ops.py`](src/sre/ops.py#L80).
+- `GET /workspaces` → `list_workspaces` in [`src/sre/ops.py`](src/sre/ops.py#L98).
+- `POST /workspaces/{workspace_id}/jobs` → `create_job` in [`src/sre/ops.py`](src/sre/ops.py#L106).
+- `GET /jobs/{job_id}` → `get_job` in [`src/sre/ops.py`](src/sre/ops.py#L130).
+- `POST /jobs/{job_id}/approve` → `approve_job` in [`src/sre/ops.py`](src/sre/ops.py#L140).
+- `GET /audit` → `audit` in [`src/sre/ops.py`](src/sre/ops.py#L160).
 
 These are literal decorators. Application/router prefixes, authentication, and middleware must be checked in the corresponding setup code.
 
